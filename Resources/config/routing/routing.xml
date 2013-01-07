@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="avro_image_image_edit" pattern="/images/{alias}/{id}">
+        <default key="_controller">AvroImageBundle:Image:edit</default>
+    </route>
+
+    <route id="avro_image_image_show" pattern="/image/{id}">
+        <default key="_controller">AvroImageBundle:Image:show</default>
+        <default key="id">null</default>
+    </route>
+
+</routes>

@@ -1,0 +1,11 @@
+<div class="row-fluid">
+    <ul class="thumbnails">
+        {% for image in object.images.toArray %}
+            <li class="collection-item center-align span3">
+                <a href="#image" class="thumbnail" style="height: 200px; line-height: 200px;">
+                    <img class="" src="{{ image.file.getId() | imagine_filter('large') }}" style="max-height: 200px;"/>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

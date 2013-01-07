@@ -1,0 +1,8 @@
+.image-preview {
+    height: 100px;
+}
+#cboxTitle {
+    h4, p {
+        padding-left: 10px;
+    }
+}

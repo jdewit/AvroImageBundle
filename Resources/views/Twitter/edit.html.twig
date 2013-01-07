@@ -1,0 +1,38 @@
+{% extends 'AvroImageBundle::layout.html.twig' %}
+{% block content %}
+{% macro imageItem(imageField, showImage) %}
+{% import 'AvroImageBundle:Templates:image.html.twig' as image_widget %}
+<li class="collection-item thumbnail center-align span3" style="cursor: move;">
+    <div class="right-align">
+        <a href="#" tabindex="-1" class="remove-item" title="Remove image"><i class="icon-remove"></i></a>
+    </div>
+    {{ image_widget.widget(imageField) }}
+</li>
+{% endmacro %}
+
+{{ form_errors(form) }}
+    <form class="hasCollection" action="{{ path('avro_image_image_edit', {'alias': alias, 'id': object.id}) }}" method="POST" {{ form_enctype(form) }}>
+    <div class="page-header">
+        <h1>
+            {% if object.name is defined %}{{ object.name }}{% elseif object.title is defined %}{{ object.title }}{% else %}Edit {% endif %} Images
+            <a href="#" class="add-item btn btn-large btn-success pull-right" data-target="#images"><i class="icon-plus icon-white"></i> Add an Image</a>
+        </h1>
+    </div>
+        <ul id="images" class="thumbnails collection-container" style="min-height: 100px;" data-prototype="{{ _self.imageItem(form.images.vars.prototype, false) | e }}">
+            {% for image in form.images %}
+                {{ _self.imageItem(image, true) }}
+            {% else %}
+                <li>0 Images</li>
+            {% endfor %}
+        </ul>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary"><i class="icon-ok icon-white"></i> Update Images</button>
+            <a class="btn" href="{{ backUri }}"><i class="icon-arrow-left"></i> Back</a>
+        </div>
+        {{ form_widget(form._token) }}
+    </form>
+{% endblock %}
+{% block js %}
+		$('#images').sortable();
+{% endblock %}
+

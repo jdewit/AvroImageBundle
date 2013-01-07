@@ -1,0 +1,4 @@
+{% block image_src %}{{ path | imagine_filter(filter ~'_file') }}{% endblock %}
+{% block image %}
+    <img src="{{ asset(path) }}" {% if class is defined %}class="{{ class }}"{% endif %} {% if css is defined %}style="{{ css }}"{% endif %}/>
+{% endblock %}

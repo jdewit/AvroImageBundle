@@ -1,0 +1,21 @@
+{
+    "name": "avro/image-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony2 image Bundle",
+    "keywords": ["image"],
+    "homepage": "http://github.com/avro/ImageBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joris de Wit",
+            "email": "joris.w.dewit@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2"
+    },
+    "autoload": {
+        "psr-0": { "Avro\\ImageBundle": "" }
+    },
+    "target-dir": "Avro/ImageBundle"
+}

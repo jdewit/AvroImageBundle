@@ -1,0 +1,23 @@
+{% macro widget(imageField) %}
+<span class="center-align">
+    {% if imageField['file'].vars['data'].id is defined %}
+        <img class="image-preview" src="{{ imageField['file'].vars['data'].id | imagine_filter('large') }}"/>
+    {% else %}
+        <img class="image-preview" src="{{ asset('images/defaultUser.png') }}" style="height: 100px;"/>
+    {% endif %}
+    {#<br />#}
+    {#{{ form_widget(imageField.label) }}#}
+    {#<br />#}
+    {#{{ form_widget(imageField.caption) }}#}
+    {#<br />#}
+    {#{{ form_widget(imageField.position) }}#}
+    <br />
+    {{ form_widget(imageField.file.file) }}
+    </span>
+{% endmacro %}
+{% macro row(imageField) %}
+    <div class="center-align">
+            {{ _self.widget(imageField) }}
+    </div>
+{% endmacro %}
+
